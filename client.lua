@@ -52,7 +52,7 @@ CreateThread(function()
             },
             {
                 distance = 2.0,
-                label = 'Receber pagamento',
+                label = 'Recive Payment',
                 icon = 'fas fa-dollar-sign',
                 onSelect = function()
                     finishJob()
@@ -69,7 +69,7 @@ function startJob(garden)
     lib.callback('mt-gardening:server:checkCanStartJob', false, function(canStart)
         if canStart then
             inJob = true
-            lib.notify({ title = 'Começou serviço!', description = 'Começas-te o serviço, vai para os canteiros de flores da escola e trata das plantas!', type = 'success' })
+            lib.notify({ title = 'Service started!', description = 'You have started a new service, go at plants and take care of it!', type = 'success' })
             for k, v in pairs(garden.locations) do
                 locations += 1
                 marker[k] = true
@@ -92,7 +92,7 @@ function startJob(garden)
                     options = {
                         {
                             distance = 2.0,
-                            label = 'Cortar',
+                            label = 'Take care',
                             icon = 'fas fa-scissors',
                             onSelect = function()
                                 TaskTurnPedToFaceCoord(cache.ped, v.x, v.y, v.z, 500)
@@ -104,7 +104,7 @@ function startJob(garden)
                                     marker[k] = false
                                     paymentAmount += Config.pricerPerLocation
                                     locationsDone += 1
-                                    lib.notify({ title = 'Planta tratada!', description = 'Trastas-te '..locationsDone..'/'..locations..' plantas. \nValor: '..paymentAmount..'$', type = 'success' })
+                                    lib.notify({ title = 'Plant done!', description = 'You have done '..locationsDone..'/'..locations..' plants. Value: '..paymentAmount..'$', type = 'success' })
                                 else ClearPedTasksImmediately(cache.ped) end
                             end,
                             caInteract = function()
@@ -115,7 +115,7 @@ function startJob(garden)
                 })
             end
         else
-            lib.notify({ title = 'Descansa pah!', description = 'Já fizes-te o máximo de trabalhos por hoje, vai descansar!', type = 'error' })
+            lib.notify({ title = 'Rest a little!', description = 'You worked too much, come back later time to work more!', type = 'error' })
         end
     end)
 end
