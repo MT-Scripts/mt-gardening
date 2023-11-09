@@ -11,11 +11,11 @@ Config.locations = {
             color = 2,
             display = 4,
             scale = 0.8,
-            label = 'Jardinagem',
+            label = 'Gardening',
         },
         ped = {
             model = 's_m_m_gardener_01',
-            text = 'Falar com o Zé',
+            text = 'Talk with Jose',
             coords = vec4(-1630.1981, 225.7444, 59.7606, 134.6683),
             scenario = 'WORLD_HUMAN_LEANING',
         },
